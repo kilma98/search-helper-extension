@@ -1,1 +1,0 @@
-chrome.runtime.onMessage.addListener((e,r,t)=>{if(e.action==="openSearch"){const o=`https://www.google.com/search?q=${encodeURIComponent(e.query)}`;chrome.tabs.create({url:o})}if(e.action==="openMultipleSearches")for(const o of e.queries){const n=`https://www.google.com/search?q=${encodeURIComponent(o)}`;chrome.tabs.create({url:n})}});
