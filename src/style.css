@@ -8,19 +8,42 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  min-width: 360px;
-  min-height: 480px;
+  padding: 0;
+  min-width: 380px;
+  min-height: 620px;
+  background: #f8fafc;
+  color: #111827;
+  font-family: Inter, Arial, sans-serif;
 }
 
 .container {
   padding: 16px;
 }
 
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 h1 {
-  margin: 0 0 16px;
+  margin: 0;
   font-size: 20px;
+  line-height: 1.2;
+}
+
+.shortcut-hint {
+  font-size: 11px;
+  color: #5f6368;
+  background: #eef2f7;
+  border: 1px solid #dbe3ea;
+  border-radius: 999px;
+  padding: 4px 8px;
 }
 
 .label {
@@ -32,24 +55,62 @@ h1 {
 
 .input,
 .select,
+.textarea,
 .button {
   width: 100%;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
   font-size: 14px;
+  font-family: inherit;
 }
 
 .input,
-.select {
+.select,
+.textarea {
   padding: 10px 12px;
   background: white;
+  color: #111827;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.quick-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 8px;
+}
+
+.filter-chip {
+  border: 1px solid #dadce0;
+  background: #fff;
+  color: #3c4043;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.filter-chip:hover {
+  background: #f8f9fa;
+}
+
+.filter-chip.active {
+  background: #e8f0fe;
+  border-color: #d2e3fc;
+  color: #1967d2;
 }
 
 .actions {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
-  margin: 14px 0 16px;
+  margin: 10px 0 16px;
 }
 
 .button {
@@ -114,5 +175,54 @@ h1 {
 .empty {
   margin: 0;
   color: #64748b;
+  font-size: 13px;
+}
+
+.preset-builder {
+  margin: 16px 0;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: white;
+}
+
+.preset-builder summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.feedback {
+  min-height: 18px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+.section-title {
+  margin: 16px 0 8px;
+  font-size: 15px;
+}
+
+.saved-presets {
+  display: grid;
+  gap: 10px;
+}
+
+.preset-card {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.preset-card-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.preset-template-list {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  color: #475569;
   font-size: 13px;
 }

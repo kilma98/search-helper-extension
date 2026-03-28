@@ -11,12 +11,17 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: resolve(rootDir, "index.html"),
-        background: resolve(rootDir, "src/background.ts")
+        background: resolve(rootDir, "src/background.ts"),
+        content: resolve(rootDir, "src/content.ts")
       },
       output: {
         entryFileNames: (chunkInfo) => {
           if (chunkInfo.name === "background") {
             return "background.js";
+          }
+
+          if (chunkInfo.name === "content") {
+            return "content.js";
           }
 
           return "assets/[name]-[hash].js";

@@ -1,9 +1,21 @@
 {
   "manifest_version": 3,
   "name": "Search Helper",
-  "version": "0.1.0",
+  "version": "0.7.0",
   "description": "Enhance search queries with smarter suggestions.",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
+  "omnibox": {
+    "keyword": "sh"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Open Search Helper"
+    }
+  },
   "action": {
     "default_popup": "index.html",
     "default_title": "Search Helper"
@@ -12,9 +24,21 @@
     "service_worker": "background.js",
     "type": "module"
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "search-helper@example.com"
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://google.com/*",
+        "https://www.google.tn/*",
+        "https://google.tn/*",
+        "https://www.google.fr/*",
+        "https://google.fr/*",
+        "https://duckduckgo.com/*",
+        "https://www.qwant.com/*",
+        "https://qwant.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
-  }
+  ]
 }
